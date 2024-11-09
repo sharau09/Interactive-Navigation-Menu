@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar Styling */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(34, 34, 34, 0.8);
+      backdrop-filter: blur(5px);
+      color: white;
+      padding: 15px 0;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    /* Hover Effect on Menu Items */
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ff6347, #ff8c00);
+      border-radius: 30px;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+
+    nav ul li a:hover::before {
+      transform: scale(1);
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    /* Change navbar style when scrolled */
+    .scrolled {
+      background-color: rgba(34, 34, 34, 0.95);
+    }
+
+    /* Section Styling */
+    section {
+      height: 100vh;
+      padding: 100px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #333;
+    }
+
+    #home { background: linear-gradient(135deg, #f0f4f8, #d9e2ec); }
+    #about { background: linear-gradient(135deg, #d9e2ec, #bcccdc); }
+    #services { background: linear-gradient(135deg, #bcccdc, #9fb3c8); }
+    #portfolio { background: linear-gradient(135deg, #9fb3c8, #829ab1); }
+    #contact { background: linear-gradient(135deg, #829ab1, #627d98); }
+
+    /* Section Heading Styling */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: #444;
+    }
+
+    /* Smooth Scrolling for Anchor Links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Sections -->
+  <section id="home">
+    <h1>Welcome to My Website</h1>
+    <p>Explore my portfolio to learn more about me and my work. Scroll down to see my skills, projects, and how to connect with me.</p>
+  </section>
+
+  <section id="about">
+    <h1>About Me</h1>
+    <p>I’m a passionate web developer with expertise in creating dynamic, responsive web applications. With a strong background in front-end design and back-end development, I bring ideas to life online.</p>
+  </section>
+
+  <section id="services">
+    <h1>My Services</h1>
+    <p>From web development to UX/UI design, I offer a range of services that help businesses enhance their online presence with modern, engaging websites and applications.</p>
+  </section>
+
+  <section id="portfolio">
+    <h1>My Portfolio</h1>
+    <p>Check out some of my recent projects, showcasing skills in various web technologies. Each project reflects a commitment to quality, creativity, and functionality.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact Me</h1>
+    <p>If you’re interested in working together or have any questions, feel free to reach out. Let’s build something amazing!</p>
+  </section>
+
+  <script>
+    // Add 'scrolled' class to navbar when page is scrolled
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
